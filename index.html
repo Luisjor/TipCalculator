@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Jorge Chávez | Tip calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main id="container">
+    <div id="logoCalc">
+      <img src="./images/logo.svg">
+    </div>
+    <div id="calcGrid">
+      <div class="gridElement One">
+        <span class="SectionTitle">Bill</span>
+        <span class="BillError">Can't be less than 0</span>
+        <form>
+          <input type="number" class="InputBox Bill" placeholder="0.00">
+        </form>
+      </div>
+      <div class="gridElement Two">
+        <div class="SectionTitle">Select Tip %</div>
+        <div class="gridTips">
+          <button class="TipAmount" value="0.05">5%</button>
+          <button class="TipAmount" value="0.1">10%</button>
+          <button class="TipAmount" value="0.15">15%</button>
+          <button class="TipAmount" value="0.25">25%</button>
+          <button class="TipAmount" value="0.5">50%</button>
+          <input class="TipCust" placeholder="Custom" type="number">
+        </div>
+        
+      </div>
+      <div class="gridElement Three">
+        <span class="SectionTitle">Number of People</span>
+        <span class="PeopleError">Can't be zero</span>
+        
+        <form>
+          <input type="number" class="InputBox NoP" placeholder="0" value="1" onclick="this.select()">
+        </form>
+      </div>
+      <div class="gridElement Four">
+        <div class="Screen Total">
+          <div class="mainText">Total</div>
+          <div class="descriptiveText"></div>
+          <div class="screenQuantityTot">$0.00</div>
+        </div>
+        <div class="Screen Tips">
+          <div class="mainText">Tip Amount</div>
+          <div class="descriptiveText">/ person</div>
+          <div class="screenQuantityTip">$0.00</div>
+        </div>
+        <div class="Screen TotalPerson">
+          <div class="mainText">Total</div>
+          <div class="descriptiveText">/ person</div>
+          <div class="screenQuantityTotal">$0.00</div>
+        </div>
+          <button class="ResetButton" disabled>RESET</button>
+      </div>
+
+      
+
+    
+      
+    
+
+    </div>
+  </main>
+
+  
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="http://luisjor.github.io/Portfolio/">Luis Jorge Chávez Cernas</a>.
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
+:root {
+    --Strong-cyan: hsl(172, 67%, 45%);
+    --Very-dark-cyan: hsl(183, 100%, 15%);
+    --Strong-cyan-inactive: hsla(172, 67%, 45%, 0.1);
+    --Dark-grayish-cyan: hsl(186, 14%, 43%);
+    --Grayish-cyan: hsl(184, 14%, 56%);
+    --Light-grayish-cyan: hsl(185, 41%, 84%);
+    --Very-light-grayish-cyan: hsl(189, 41%, 97%);
+    --White: hsl(0, 0%, 100%);
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+html {
+    background-color: var(--Light-grayish-cyan);
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 100vh;
+}
+
+#logoCalc {
+    text-transform: uppercase;
+    font-size: 24px;
+}
+
+#calcGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    background-color: var(--White);
+    box-sizing: border-box;
+    height: 500px;
+    width: 800px;
+    border-radius: 25px;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.Four {
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    background-color: var(--Very-dark-cyan);
+    border-radius: 25px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.InputBox {
+    width: 100%;
+    box-sizing: border-box;
+    height: 2.5rem;
+    padding: 5px 20px;
+    background-color: var(--Very-light-grayish-cyan);
+    border-radius: 5px;
+    text-align: right;
+    font-size: 24px;
+    font-family: 'Space Mono', monospace;
+    margin-top: 1rem;
+    cursor: pointer;
+    outline: none;
+    
+}
+
+.Bill {
+    background-image: url("./images/icon-dollar.svg");
+    background-position: 10px .7rem;
+    background-repeat: no-repeat;
+    border: 10px;
+    border-color: red;
+}
+
+.NoP {
+    background-image: url("./images/icon-person.svg");
+    background-position: 10px .7rem;
+    background-repeat: no-repeat;
+    border: none;
+
+}
+
+.gridTips {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    
+}
+
+.TipAmount, .TipCust {
+    background-color: var(--Very-dark-cyan);
+    border-radius: 5px;
+    border: none;
+    color: var(--White);
+    height: 50px;
+    font-size: 24px;
+    font-family: 'Space Mono', monospace;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.TipCust {
+    background-color: var(--Very-light-grayish-cyan);
+    color: var(--Very-dark-cyan);
+    text-align: center;
+    width: 100%;
+    outline: none;
+}
+
+.TipAmount:hover, .TipAmount:focus {
+    background-color: var(--Strong-cyan);
+    color: var(--Very-dark-cyan);
+}
+
+.Custom:hover, .Custom:focus {
+    background-color: var(--Very-light-grayish-cyan);
+}
+
+.Screen {
+    color: var(--White);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 1rem;
+    justify-items: start;
+}
+
+
+
+.ResetButton {
+    background-color: var(--Strong-cyan);
+    color: var(--Very-dark-cyan);
+    width: 100%;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: 'Space Mono', monospace;
+    margin-top: auto;
+}
+
+.ResetButton:disabled {
+    background-color: var(--Strong-cyan-inactive);
+    
+}
+
+.mainText {
+    grid-row: 1;
+    grid-column: 1;
+    justify-content: end;
+    align-self: end
+}
+
+.descriptiveText {
+    grid-row: 2;
+    grid-column: 1;
+    font-size: 16px;
+    color: var(--Grayish-cyan);
+}
+
+.screenQuantityTotal, .screenQuantityTip, .screenQuantityTot {
+    grid-row-end: span 2;
+    font-size: 2.5rem;
+    color: var(--Strong-cyan);
+    justify-self: flex-end;
+}
+
+.BillError, .PeopleError {
+    color: red;
+    float: right;
+    visibility: hidden;
+}
+
+@media screen and (max-width: 850px) {
+    #calcGrid {
+        grid-template-columns: 1fr;
+        width: 90%;
+        height: auto;
+    }
+
+    .Four {
+        grid-template-rows: 1fr 2fr 1fr 4fr;
+        grid-column: 1;
+        grid-row: 4;
+        
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #calcGrid {
+        width: 100%;
+        min-width: 350px;
+
+    }
+}
