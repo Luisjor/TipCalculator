@@ -196,6 +196,7 @@ html {
         grid-template-columns: 1fr;
         width: 90%;
         height: auto;
+        min-width: 350px;
     }
 
     .Four {
@@ -203,6 +204,10 @@ html {
         grid-column: 1;
         grid-row: 4;
         
+    }
+
+    .screenQuantityTotal, .screenQuantityTip, .screenQuantityTot {
+        font-size: 1.5rem;
     }
 }
 
