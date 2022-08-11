@@ -92,6 +92,10 @@ html {
     border-color: red;
 }
 
+.Bill:focus, .NoP:focus {
+    border: 1px solid var(--Strong-cyan);
+}
+
 .NoP {
     background-image: url("./images/icon-person.svg");
     background-position: 10px .7rem;
@@ -108,7 +112,7 @@ html {
     
 }
 
-.TipAmount, .TipCust {
+.TipAmount {
     background-color: var(--Very-dark-cyan);
     border-radius: 5px;
     border: none;
@@ -120,7 +124,7 @@ html {
     cursor: pointer;
 }
 
-.TipCust {
+#TipCust {
     background-color: var(--Very-light-grayish-cyan);
     color: var(--Very-dark-cyan);
     text-align: center;
@@ -189,10 +193,6 @@ html {
     color: red;
     float: right;
     visibility: hidden;
-}
-
-.attribution {
-    display: inline;
 }
 
 @media screen and (max-width: 850px) {
