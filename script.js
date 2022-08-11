@@ -1,7 +1,7 @@
 var BillInput = document.getElementsByClassName("Bill")[0];
 var PeopleInput = document.getElementsByClassName("NoP")[0];
 var TipInput = document.querySelectorAll(".TipAmount");
-var CustomTipInput = document.getElementsByClassName("TipCust")[0];
+var CustomTipInput = document.getElementById("TipCust");
 var ResetButton = document.getElementsByClassName("ResetButton")[0];
 
 var BillAmount = 0;
@@ -19,6 +19,8 @@ var FormattedfinalBillPerson = 0;
 
 var x = window.matchMedia("(min-width: 850px)")
 
+
+// Get the  Bill Amount
 BillInput.addEventListener("input", () => {
     BillAmount = Number(BillInput.value);
     if (BillAmount < 0) {
@@ -34,6 +36,7 @@ BillInput.addEventListener("input", () => {
     }
 )
 
+// Get the  Amount of People
 PeopleInput.addEventListener("input", () => {
     PeopleAmount = Number(PeopleInput.value);
     if (PeopleAmount <= 0) {
@@ -47,6 +50,31 @@ PeopleInput.addEventListener("input", () => {
     finalValues()
 });
 
+// If Tip from buttons, get them
+TipInput.forEach(item => {
+    item.addEventListener("click", () => {
+        //Style when clicked
+        TipInput.forEach((b) => {
+            b.style.backgroundColor = "var(--Very-dark-cyan)";
+            b.style.color = "white";
+            item.style.backgroundColor = "var(--Strong-cyan)"
+            item.style.color = "var(--Very-dark-cyan)"
+            });
+
+        //If Custom tip
+        if (item.id === "TipCust") {
+            item.style.backgroundColor = "var(--Very-light-grayish-cyan)"
+            item.style.border = "1px solid var(--Strong-cyan)"
+            CustomTip()
+        } 
+        //Get value of Tip
+        else {TipPercent = Number(item.value);}
+        finalValues()
+    })
+});
+
+// Get Custom Tip
+function CustomTip() {
 CustomTipInput.addEventListener("input", () => {
     TipPercent = (Number(CustomTipInput.value) / 100);
     if (TipPercent <= 0) {
@@ -56,21 +84,16 @@ CustomTipInput.addEventListener("input", () => {
     }
     finalValues()
 });
-
-TipInput.forEach(item => {
-    item.addEventListener("click", () => {
-    TipPercent = Number(item.value);
-    finalValues()
-})
-});
-
+}
+        
+// Calculate final values
 function finalValues() {
     TipTotal = (BillAmount * TipPercent);
     FinalTotal = (BillAmount + TipTotal);
     finalTipPerson = (TipTotal / PeopleAmount);
     finalBillPerson = (FinalTotal / PeopleAmount);
 
-    if (isNaN(finalBillPerson) || isNaN(finalTipPerson)) {
+    if (isNaN(finalBillPerson) || isNaN(finalTipPerson) || finalBillPerson === Infinity) {
         finalBillPerson = 0;
         finalTipPerson = 0;
     } else {
@@ -78,7 +101,6 @@ function finalValues() {
         FormattedFinalTotal = FinalTotal.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         FormattedfinalTipPerson = finalTipPerson.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         FormattedfinalBillPerson = finalBillPerson.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        console.log(FormattedFinalTotal.length)
 
         if (x.matches) { 
             if (FormattedFinalTotal.length > 8) {
