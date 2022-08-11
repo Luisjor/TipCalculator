@@ -59,6 +59,9 @@ TipInput.forEach(item => {
             b.style.color = "white";
             item.style.backgroundColor = "var(--Strong-cyan)"
             item.style.color = "var(--Very-dark-cyan)"
+            if (b.id === "TipCust") {
+                b.style.backgroundColor = "var(--Very-light-grayish-cyan)"
+            }
             });
 
         //If Custom tip
